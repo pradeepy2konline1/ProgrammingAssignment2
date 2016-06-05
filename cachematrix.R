@@ -9,10 +9,10 @@ makeCacheMatrix <- function(x = matrix()) {
                 x <<- y
                 inv <<- NULL
         }
-        get <- function() x
+        get <- function() x  #I am getting the function to allow matrix op
         setinverse <- function(inverse) inv <<- inverse
         getinverse <- function() inv
-        list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
+        list(set=set, get=get, setinverse=setinverse, getinverse=getinverse) #produce the result set list
 }
 
 
@@ -24,7 +24,7 @@ cacheSolve <- function(x, ...) {
         
             inv <- x$getinverse()
         if(!is.null(inv)) {
-                message("getting cached data.")
+                message("data getting retrieved from cache.")
                 return(inv)
         }
         data <- x$get()
